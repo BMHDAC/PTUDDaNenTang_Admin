@@ -26,11 +26,11 @@ function App() {
     <Route element={<RequireAdmin/>}>
       <Route path='/' element={<Navbar/>}>
         <Route path ="organization" element={<Organization/>}/>
-        <Route path ="/posts/:userID" element={<Posts/>}/>
-        <Route path ="/posts/org/:orgID" element={<OrgPost/>}/>
-        <Route path ='/user' element={<Users/>}/>
-        <Route path='/home' element={<Home/>}/>
-        <Route path='/logout' element={<Logout/>}/>
+        <Route path ="posts/:userID" element={<Posts/>}/>
+        <Route path ="posts/org/:orgID" element={<OrgPost/>}/>
+        <Route path ='user' element={<Users/>}/>
+        <Route path='home' element={<Home/>}/>
+        <Route path='logout' element={<Logout/>}/>
       </Route>
     </Route>
     

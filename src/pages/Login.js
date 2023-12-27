@@ -23,7 +23,7 @@ const Login = () => {
         if(user) {
             navigate('/home')
         }
-    },[])
+    },[navigate,user])
 
     useEffect(()=>{
         setErrMsg('')

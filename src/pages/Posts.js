@@ -8,7 +8,12 @@ const Posts = () => {
   const {userID} = useParams()
   const [posts, setPosts] = useState([])
   const navigate = useNavigate()
-  console.log(userID)
+  
+  useEffect(() => {
+    if(!userID) {
+      navigate('/user')
+    }
+  },[navigate,userID])
   const deletePost = (id) => {
     navigate(`/posts/${id}`)
   }

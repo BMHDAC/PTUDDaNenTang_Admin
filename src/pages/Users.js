@@ -17,6 +17,10 @@ const Users = () => {
     getAllUser()
 
   },[])
+
+  const deleteUser =(username) => {
+    
+  }
   return (
 <div className='contentcontainer'>
     <table className='tablecontain'>
@@ -38,6 +42,14 @@ const Users = () => {
               <Link to={`/posts/${usr.username}`}>
                 <text>Post list</text>
               </Link>
+            </td>
+            <td>
+              <button
+              usernameID = {usr.username}
+              onClick={()=>deleteUser(usr.username)}
+              >
+                Delete
+              </button>
             </td>
           </tr>
         ))}
