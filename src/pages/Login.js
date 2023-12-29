@@ -4,34 +4,19 @@ import { useState,useRef,useEffect } from 'react'
 import CryptoJS from 'crypto-js'
 import {useNavigate} from 'react-router-dom'
 import {toast} from 'react-hot-toast'
-import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import { login } from '../api/login'
+
 const Login = () => {
-    const user = useSelector((state) => state.user?.currentUser)
     const usernameRef =useRef()
     const [username,setUsername]= useState('')
     const [password,setPassword]= useState('')
-    const [errMsg,setErrMsg] = useState('')
     const navigate = useNavigate()
     const dispatch = useDispatch()
     useEffect (()=> {
         usernameRef.current.focus();
     },[])
-
-    useEffect(()=> {
-        if(user) {
-            navigate('/home')
-        }
-    },[navigate,user])
-
-    useEffect(()=>{
-        setErrMsg('')
-
-    },[username,password])
-
-
-    
+ 
     const handleSubmit = async (e) => {
         e.preventDefault()
         if(!username || !password) {
@@ -45,7 +30,15 @@ const Login = () => {
 
         try {
             const response = await login(dispatch, username, cryptedPwd)
-            navigate('/home')
+            if(response.data.user.role ==="admin") {
+                navigate('/home')
+            } else {
+                toast.error("you are not admin")
+                setUsername('')
+                setPassword('')
+                window.location.reload()
+            }
+            
         } catch(error) {
             console.log(error)
             if (error.response?.data && error.response?.data.code === 1) {

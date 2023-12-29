@@ -38,7 +38,7 @@ const Organization = () => {
             <td>{item.name}</td>
             <td>{item.creator}</td>
             <td>{item.description}</td>
-            <td>{item.urlAvatar}</td>
+            <td><a href={item.urlAvatar}>{item.urlAvatar}</a></td>
             <td>
               <Link to={`/posts/org/${item.id}`}>
                 <text>Post list</text>

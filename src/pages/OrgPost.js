@@ -2,14 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { userRequest } from '../hooks/requestMethod'
 import {toast} from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
 
 const OrgPost = () => {
   const {orgID} = useParams()
   const [posts, setPosts] = useState([])
-  const navigate = useNavigate()
   const deletePost = (id) => {
-    navigate(`/posts/${id}`)
+    if(window.confirm(`Do you want to delete post by user ${orgID}`)) {
+      
+      toast.success('Xóa người dùng thành công')
+      window.location.reload()
+     
+  } else {
+    toast.error("Có lỗi xảy ra")
+  }
   }
   useEffect(() => {
     const getHelpRequest = async () => {

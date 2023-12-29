@@ -4,6 +4,7 @@ import {toast} from 'react-hot-toast'
 import { Link } from 'react-router-dom'
 const Users = () => {
   const [users,setUsers] = useState([])
+  
 
   useEffect(() => {
     const getAllUser = async () => {
@@ -18,7 +19,20 @@ const Users = () => {
 
   },[])
 
-  const deleteUser =(username) => {
+  const deleteUser = async (username) => {
+    if(window.confirm(`Do you want to delete user ${username}`)) {
+      const response = await userRequest.delete(`admin/deleteUser/${username}`)
+      if(response.status===200) {
+        toast.success('Xóa người dùng thành công')
+        window.location.reload()
+      }
+      else {
+        toast.error('Có lỗi xảy ra')
+      }
+    } else {
+      toast.error("Có lỗi xảy ra")
+    }
+
     
   }
   return (
@@ -39,7 +53,7 @@ const Users = () => {
             <td>{usr.phone}</td>
             <td>{usr.gmail}</td>
             <td>
-              <Link to={`/posts/${usr.username}`}>
+              <Link to={`/posts/user/${usr.username}`}>
                 <text>Post list</text>
               </Link>
             </td>
@@ -54,6 +68,8 @@ const Users = () => {
           </tr>
         ))}
     </table>
+
+    
 </div>
   )
 }

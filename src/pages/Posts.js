@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
 import { userRequest } from '../hooks/requestMethod'
 import {toast} from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
 
-const Posts = () => {
-  const {userID} = useParams()
-  const [posts, setPosts] = useState([])
-  const navigate = useNavigate()
+const Post = () => {
   
-  useEffect(() => {
-    if(!userID) {
-      navigate('/user')
-    }
-  },[navigate,userID])
+  const [posts, setPosts] = useState([])
+
+
   const deletePost = (id) => {
-    navigate(`/posts/${id}`)
+  
   }
   useEffect(() => {
     const getHelpRequest = async () => {
-      const response = await userRequest(`/admin/getHelpRequestByUser/${userID}`)
+      const response = await userRequest(`/admin/getAllHelpRequest`)
       if(response.data.data) {
         setPosts(response.data.data) 
       } else {
@@ -27,10 +20,10 @@ const Posts = () => {
       }
     }
     getHelpRequest()
-  },[userID])
+  },[])
   return (
     <div className='contentcontainer'>
-        <text> Post uploaded by user {userID}</text>
+        <text> All Posts</text>
         <table className='tablecontain'>
         <tr>
             <th>Created At</th>
@@ -44,7 +37,7 @@ const Posts = () => {
             <td>{item.createAt}</td>
             <td>{item.title}</td>
             <td>{item.description}</td>
-            <td>{item.images}</td>
+            <td><a href={item.images}>{item.images} </a></td>
             <td>
               <button
               postID = {item.id}
@@ -58,4 +51,4 @@ const Posts = () => {
   )
 }
 
-export default Posts
+export default Post

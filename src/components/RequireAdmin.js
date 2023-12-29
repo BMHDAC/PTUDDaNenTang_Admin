@@ -1,6 +1,6 @@
 import {Outlet, Navigate, } from 'react-router-dom'
 import { useSelector} from 'react-redux'
-import user from '../redux/user'
+
 
 const RequireAdmin = () => {
     const user = useSelector((state) => state.user?.currentUser)
