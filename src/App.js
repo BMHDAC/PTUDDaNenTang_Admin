@@ -4,7 +4,6 @@ import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
-
 import Users from './pages/Users';
 import UserPosts from './pages/UserPosts';
 import Organization from './pages/Organization';

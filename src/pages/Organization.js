@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom'
 const Organization = () => {
   
   const [org, setOrg] = useState([])
-  const deleteOrg = (id) => {
-
+  const deleteOrg = (id,name) => {
+    if(window.confirm(`Xóa tổ chức ${name} id: ${id}`)) {
+      //API xóa
+      toast.success("Xóa thành công")
+    } else {
+      toast.error("Hủy bỏ")
+    }
   }
 
   useEffect(()=> {
@@ -47,7 +52,7 @@ const Organization = () => {
             <td>
               <button
               postID = {item.id}
-              onClick={() => deleteOrg(item.id)}
+              onClick={() => deleteOrg(item.id,item.name)}
               > Delete</button>
             </td>
           </tr>

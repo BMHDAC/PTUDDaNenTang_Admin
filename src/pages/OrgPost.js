@@ -6,14 +6,14 @@ import {toast} from 'react-hot-toast'
 const OrgPost = () => {
   const {orgID} = useParams()
   const [posts, setPosts] = useState([])
-  const deletePost = (id) => {
-    if(window.confirm(`Do you want to delete post by user ${orgID}`)) {
-      
-      toast.success('Xóa người dùng thành công')
-      window.location.reload()
+  const deletePost = (id,name) => {
+    if(window.confirm(`Bạn có muốn xóa bài đăng của ${name} id: ${id}`)) {
+      //APT
+      toast.success('Xóa thành công')
+      //Reload
      
   } else {
-    toast.error("Có lỗi xảy ra")
+    toast.error("Hủy bỏ")
   }
   }
   useEffect(() => {
@@ -49,7 +49,7 @@ const OrgPost = () => {
             <td>
               <button
               postID = {item.id}
-              onClick={() => deletePost(item.id)}
+              onClick={() => deletePost(item.id,item.creator)}
               > Delete</button>
             </td>
           </tr>

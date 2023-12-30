@@ -4,6 +4,9 @@
     margin-left: 20vw;
     margin-top: 10vh;
 }
+table {
+    max-width: 80vw;
+}
 table, th ,td  {
   border-collapse: collapse;
   border: 1px solid;
@@ -24,7 +27,28 @@ th, td {
     padding: 1vw;
 }
 td {
-    max-width: 90vh;
+    max-width: 35vw;
     overflow: hidden;
   text-overflow: clip; 
+}
+
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.loginForm { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh
+}
+.loginButton {
+    max-width:fit-content;
+    align-self: center;
+    background-color: #3469a6;
+    font: inherit;
+    color: white;
 }

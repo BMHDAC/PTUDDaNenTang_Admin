@@ -54,10 +54,11 @@ const Login = () => {
     }
 
   return (
-    <section>
-            <h1>Sign In</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username:</label>
+    <section className='loginContainer'>
+            <h1>Quản lý ứng dụng thiện nguyện</h1>
+            <h2>Đăng nhập</h2>
+            <form className='loginForm' onSubmit={handleSubmit}>
+                <label htmlFor="username">Tên đăng nhập</label>
                 <input
                     type="text"
                     id="username"
@@ -68,7 +69,7 @@ const Login = () => {
                     required
                 />
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password">Mật khẩu</label>
                 <input
                     type="password"
                     id="password"
@@ -76,7 +77,7 @@ const Login = () => {
                     value={password}
                     required
                 />
-                <button>Sign In</button>
+                <button className='loginButton'>Sign In</button>
             </form>
             
         </section>

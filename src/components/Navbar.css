@@ -10,6 +10,7 @@
     top: 0;
     left:0;
     transition: 850ms;
+    overflow: hidden;
   }
   
   .nav-text {
@@ -39,6 +40,7 @@
   .nav-text a:hover {
     width:100%;
     background-color: #1a83ff;
+    
   }
   
   .nav-menu-items {

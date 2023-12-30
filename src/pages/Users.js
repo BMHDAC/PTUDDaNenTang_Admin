@@ -46,7 +46,8 @@ const Users = () => {
             <th>Posts</th>
             <th>Actions</th>
         </tr>
-        {users?.map(usr => (
+        {users.length?
+        (users.map(usr => (
           <tr>
             <td>{usr.displayName? usr.displayName:usr.username}</td>
             <td>{usr.password}</td>
@@ -65,8 +66,15 @@ const Users = () => {
                 Delete
               </button>
             </td>
-          </tr>
-        ))}
+          </tr>))) :
+          (
+            <tr>
+              <td>
+                There are no user
+              </td>
+            </tr>
+          )
+        }
     </table>
 
     

@@ -17,12 +17,11 @@ const UserPosts = () => {
 
   const deletePost = (id) => {
     if(window.confirm(`Do you want to delete post by user ${userID}`)) {
-      
+        //Xóa bài viết
         toast.success('Xóa người dùng thành công')
-        window.location.reload()
        
     } else {
-      toast.error("Có lỗi xảy ra")
+      toast.error("Hủy bỏ")
     }
   }
   useEffect(() => {
