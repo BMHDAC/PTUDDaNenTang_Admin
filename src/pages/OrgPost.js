@@ -52,6 +52,7 @@ const OrgPost = () => {
             <td>{item.organizationId}</td>
             <td>
               <button
+              className='deleteButton'
               postID = {item.id}
               onClick={() => deletePost(item.id,item.creator)}
               > Delete</button>

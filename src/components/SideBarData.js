@@ -16,13 +16,6 @@ export const SideBarData = [
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
   },
-
-  {
-    title: 'Posts',
-    path: '/posts',
-    icon: <IoIcons.IoIosPaper />,
-    cName: 'nav-text'
-  },
   {
     title: 'Organization',
     path: '/organization',

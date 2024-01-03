@@ -43,7 +43,6 @@ const HelpRequest = () => {
   },[])
   return (
     <div className='contentcontainer'>
-        <text> All Posts</text>
         <form  onSubmit={goToOption}>
                 <label htmlFor="searchOption">Tìm bài viết theo username:   </label>
                 <input
@@ -55,7 +54,7 @@ const HelpRequest = () => {
                     value={option}
                     required
                 />
-                <button>Tìm kiếm</button>
+                <button className='searchButton'>Tìm kiếm</button>
           </form>
 
         <table className='tablecontain'>
@@ -76,6 +75,7 @@ const HelpRequest = () => {
             <td><a href={item.images}>{item.images} </a></td>
             <td>
               <button
+              className='deleteButton'
               RequestID = {item.id}
               onClick={() => deleteHelpRequest(item.id)}
               > Delete</button>
