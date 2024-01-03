@@ -5,13 +5,14 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import Users from './pages/Users';
-import UserPosts from './pages/UserPosts';
+import UserHelpRequest from './pages/UserPosts';
 import Organization from './pages/Organization';
 import RequireAdmin from './components/RequireAdmin';
 import Logout from './pages/Logout';
 import './App.css'
 import OrgPost from './pages/OrgPost';
 import Post from './pages/Posts';
+import HelpRequest from './pages/HelpRequest';
 function App() {
   return (
    <>
@@ -25,9 +26,10 @@ function App() {
       <Route path='/' element={<Navbar/>}>
         <Route path='posts' element={<Post/>}></Route>
         <Route path ="organization" element={<Organization/>}/>
-        <Route path ="posts/user/:userID" element={<UserPosts/>}/>
-        <Route path ="posts/org/:orgID" element={<OrgPost/>}/>
+        <Route path ="hr/:userID" element={<UserHelpRequest/>}/>
+        <Route path ="posts/:orgID" element={<OrgPost/>}/>
         <Route path ='user' element={<Users/>}/>
+        <Route path ='hr' element={<HelpRequest/>}/>
         <Route path='home' element={<Home/>}/>
         <Route path='logout' element={<Logout/>}/>
       </Route>

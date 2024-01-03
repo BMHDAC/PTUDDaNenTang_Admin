@@ -18,15 +18,19 @@ const OrgPost = () => {
   }
   useEffect(() => {
     const getHelpRequest = async () => {
+    try {
       const response = await userRequest(`admin/getPostInOrganization/${orgID}`)
       if(response.data.data) {
         setPosts(response.data.data) 
       } else {
         toast.error("Lỗi xảy ra khi tải xuống")
       }
+    } catch (error) {
+      toast.error("Lỗi server")
+    }
     }
     getHelpRequest()
-  },[orgID])
+  })
   return (
     <div className='contentcontainer'>
         <text> Post uploaded by ORG {orgID}</text>

@@ -16,11 +16,16 @@ const Organization = () => {
 
   useEffect(()=> {
     const getAllOrg = async () => {
-      const response = await userRequest.get('/admin/getAllOrganization')
-      if(response.data.data) {
+      try {
+        const response = await userRequest.get('/admin/getAllOrganization')
+        if(response.data.data) {
         setOrg(response.data.data)
       } else {
         toast.error("Co loi xay ra khi tai ve")
+      }
+      } catch(error) {
+        console.log(error)
+        toast.error("Lỗi server")
       }
     }
     getAllOrg()
@@ -45,7 +50,7 @@ const Organization = () => {
             <td>{item.description}</td>
             <td><a href={item.urlAvatar}>{item.urlAvatar}</a></td>
             <td>
-              <Link to={`/posts/org/${item.id}`}>
+              <Link to={`/posts/${item.id}`}>
                 <text>Post list</text>
               </Link>
             </td>

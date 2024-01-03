@@ -4,9 +4,10 @@ import { userRequest } from '../hooks/requestMethod'
 import {toast} from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 
-const UserPosts = () => {
+
+const UserHelpRequest = () => {
   const {userID} = useParams()
-  const [posts, setPosts] = useState([])
+  const [helpRequest, setHelpRequest] = useState([])
   const navigate = useNavigate()
   
   useEffect(() => {
@@ -15,7 +16,7 @@ const UserPosts = () => {
     }
   },[navigate,userID])
 
-  const deletePost = (id) => {
+  const deleteHelpRequest = (id) => {
     if(window.confirm(`Do you want to delete post by user ${userID}`)) {
         //Xóa bài viết
         toast.success('Xóa người dùng thành công')
@@ -26,12 +27,17 @@ const UserPosts = () => {
   }
   useEffect(() => {
     const getHelpRequest = async () => {
-      const response = await userRequest(`/admin/getHelpRequestByUser/${userID}`)
+      try{
+         const response = await userRequest(`/admin/getHelpRequestByUser/${userID}`)
       if(response.data.data) {
-        setPosts(response.data.data) 
+        setHelpRequest(response.data.data) 
       } else {
         toast.error("Lỗi xảy ra khi tải xuống")
       }
+    } catch (error) {
+      toast.error("Lỗi server")
+    }
+     
     }
     getHelpRequest()
   },[userID])
@@ -46,7 +52,7 @@ const UserPosts = () => {
             <th>Images</th>
             <th>Actions</th>
         </tr>
-        {posts?.map(item => (
+        {helpRequest?.map(item => (
           <tr>
             <td>{item.createAt}</td>
             <td>{item.title}</td>
@@ -55,7 +61,7 @@ const UserPosts = () => {
             <td>
               <button
               postID = {item.id}
-              onClick={() => deletePost(item.id)}
+              onClick={() => deleteHelpRequest(item.id)}
               > Delete</button>
             </td>
           </tr>
@@ -65,4 +71,4 @@ const UserPosts = () => {
   )
 }
 
-export default UserPosts
+export default UserHelpRequest
