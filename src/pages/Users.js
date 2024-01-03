@@ -54,13 +54,14 @@ const Users = () => {
             <td>{usr.phone}</td>
             <td>{usr.gmail}</td>
             <td>
-              <Link to={`/posts/user/${usr.username}`}>
+              <Link to={`/hr/${usr.username}`}>
                 <text>Post list</text>
               </Link>
             </td>
             <td>
               <button
               usernameID = {usr.username}
+              className='deleteButton'
               onClick={()=>deleteUser(usr.username)}
               >
                 Delete

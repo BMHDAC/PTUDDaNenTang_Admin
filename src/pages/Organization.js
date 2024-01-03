@@ -40,6 +40,7 @@ const Organization = () => {
             <th>Created by</th>
             <th>Description</th>
             <th>Avatar URL</th>
+            <th>ID</th>
             <th>Posts list</th>
             <th>Actions</th>
         </tr>
@@ -49,6 +50,7 @@ const Organization = () => {
             <td>{item.creator}</td>
             <td>{item.description}</td>
             <td><a href={item.urlAvatar}>{item.urlAvatar}</a></td>
+            <td>{item.id}</td>
             <td>
               <Link to={`/posts/${item.id}`}>
                 <text>Post list</text>

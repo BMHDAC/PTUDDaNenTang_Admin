@@ -36,7 +36,7 @@ const Login = () => {
                 toast.error("you are not admin")
                 setUsername('')
                 setPassword('')
-                window.location.reload()
+                
             }
             
         } catch(error) {
