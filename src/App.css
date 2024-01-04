@@ -1,72 +1,84 @@
 .contentcontainer {
-    display:flex;
-    flex-direction: column;
-    margin-left: 20vw;
-    margin-top :3vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20vw;
+  margin-top: 3vh;
 }
+
 table {
-    margin-top : 3vh;
-    max-width: 80vw;
+  margin-top: 3vh;
+  max-width: 80vw;
 }
-table, th ,td  {
+
+table,
+th,
+td {
   border-collapse: collapse;
   border: 1px solid;
-  
+
 }
-tr:nth-child(even) {background-color: #f2f2f2;}
-.tablecontain { 
-    width: 100%;
-    align-content: center;
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
+
+.tablecontain {
+  width: 100%;
+  align-content: center;
+}
+
 th {
-    background-color: #1a83ff;
-    color:white;
-    text-align:left ;
-    font-size: large;
+  background-color: #1a83ff;
+  color: white;
+  text-align: left;
+  font-size: large;
 }
-th, td {
-    padding: 1vw;
-}
+
+th,
 td {
-    max-width: 35vw;
-    overflow: hidden;
-  text-overflow: clip; 
+  padding: 1vw;
+}
+
+td {
+  max-width: 35vw;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .loginContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
 }
-.loginForm { 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1vh
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1vh
 }
+
 .loginButton {
-    max-width:fit-content;
-    align-self: center;
-    background-color: #3469a6;
-    font: inherit;
-    color: white;
+  max-width: fit-content;
+  align-self: center;
+  background-color: #3469a6;
+  font: inherit;
+  color: white;
 }
-.searchButton {
-    max-width: fit-content;
-    align-items: center;
-    background-color: #3469a6;
-    font: inherit;
-    color: white;
-    margin-left: 1vw;
-}
-.deleteButton {
-    max-width: fit-content;
-    align-items: center;
-    background-color: #df1f1f;
-    font: inherit;
-    color: white;
-    margin-left: 1vw;
 
+.searchButton {
+  max-width: fit-content;
+  justify-self: center;
+  align-items: center;
+  font: inherit;
+  margin-left: 1vw;
+}
+
+.deleteButton {
+  max-width: fit-content;
+  align-items: center;
+  font: inherit;
+  margin-left: 1vw;
 }

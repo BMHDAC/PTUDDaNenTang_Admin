@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { userRequest } from '../hooks/requestMethod'
 import toast from 'react-hot-toast'
 import { Link } from 'react-router-dom'
+import { FcDeleteDatabase } from 'react-icons/fc'
 const Organization = () => {
-  
+
   const [org, setOrg] = useState([])
-  const deleteOrg = (id,name) => {
-    if(window.confirm(`Xóa tổ chức ${name} id: ${id}`)) {
+  const deleteOrg = (id, name) => {
+    if (window.confirm(`Xóa tổ chức ${name} id: ${id}`)) {
       //API xóa
       toast.success("Xóa thành công")
     } else {
@@ -14,35 +15,35 @@ const Organization = () => {
     }
   }
 
-  useEffect(()=> {
+  useEffect(() => {
     const getAllOrg = async () => {
       try {
         const response = await userRequest.get('/admin/getAllOrganization')
-        if(response.data.data) {
-        setOrg(response.data.data)
-      } else {
-        toast.error("Co loi xay ra khi tai ve")
-      }
-      } catch(error) {
+        if (response.data.data) {
+          setOrg(response.data.data)
+        } else {
+          toast.error("Co loi xay ra khi tai ve")
+        }
+      } catch (error) {
         console.log(error)
         toast.error("Lỗi server")
       }
     }
     getAllOrg()
-  },[])
+  }, [])
 
   return (
     <div className='contentcontainer'>
-        <text> Org list</text>
-        <table className='tablecontain'>
+      <text> Org list</text>
+      <table className='tablecontain'>
         <tr>
-            <th>Name</th>
-            <th>Created by</th>
-            <th>Description</th>
-            <th>Avatar URL</th>
-            <th>ID</th>
-            <th>Posts list</th>
-            <th>Actions</th>
+          <th>Name</th>
+          <th>Created by</th>
+          <th>Description</th>
+          <th>Avatar URL</th>
+          <th>ID</th>
+          <th>Posts list</th>
+          <th>Actions</th>
         </tr>
         {org?.map(item => (
           <tr>
@@ -58,14 +59,14 @@ const Organization = () => {
             </td>
             <td>
               <button
-              className='deleteButton'
-              postID = {item.id}
-              onClick={() => deleteOrg(item.id,item.name)}
-              > Delete</button>
+                className='deleteButton'
+                postID={item.id}
+                onClick={() => deleteOrg(item.id, item.name)}
+              > <FcDeleteDatabase /></button>
             </td>
           </tr>
         ))}
-    </table>
+      </table>
     </div>
   )
 }
