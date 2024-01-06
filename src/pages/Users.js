@@ -31,7 +31,7 @@ const Users = () => {
         toast.error('Có lỗi xảy ra')
       }
     } else {
-      toast.error("Có lỗi xảy ra")
+      toast.error("Hủy bỏ")
     }
 
 
